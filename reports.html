@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Financial - Reports</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="./css/bootstrap-min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+</head>
+
+<body>
+    <main>
+        <div class="row mx-auto">
+            <!-- Sidebar -->
+            <div class="col-lg-3 col-md-4 p-0 sidebar-wrapper" id="sidebar">
+                <!-- Sidebar Toggle Arrow -->
+                <button class="sidebar-toggle-arrow" id="sidebarToggle" onclick="toggleSidebar()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <aside>
+                    <div class="sidebar-container">
+                        <!-- Header -->
+                        <div class="page-header">
+                            <h1>Med Guide<br /><span>ميد جايد</span></h1>
+                        </div>
+
+                        <!-- Menu -->
+                        <nav class="sidebar-menu">
+                            <ul>
+                                <li>
+                                    <a href="index.html">
+                                        <img src="images/home-icon.png" class="sidebar-icon" alt="الصفحة الرئيسية">
+                                        الصفحة الرئيسية
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="customers.html">
+                                        <img src="images/customers-icon.png" class="sidebar-icon" alt="العملاء">
+                                        العملاء
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="employees.html">
+                                        <img src="images/employees-icon.png" class="sidebar-icon" alt="المندوبين">
+                                        المندوبين
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="discounts.html">
+                                        <img src="images/discounts-icon.png" class="sidebar-icon" alt="الخصومات">
+                                        الخصومات
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="accounts.html">
+                                        <img src="images/accounts-icon.png" class="sidebar-icon" alt="الحسابات">
+                                        الحسابات
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="reports.html" class="active">
+                                        <img src="images/reports-icon.png" class="sidebar-icon" alt="التقارير">
+                                        التقارير
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="permissions.html">
+                                        <img src="images/permissions-icon.png" class="sidebar-icon" alt="الأذونات">
+                                        الأذونات
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="history.html">
+                                        <img src="images/activity-icon.png" class="sidebar-icon" alt="سجل النشاط">
+                                        سجل النشاط
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="images/logout-icon.png" class="sidebar-icon" alt="تسجيل الخروج">
+                                        تسجيل الخروج
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9 col-md-8 p-0 content" id="mainContent">
+                <div class="content-wrapper d-flex flex-column gap-4">
+                    <!-- Top Section: Header & Profile -->
+                    <div class="row w-100 m-0 justify-content-between">
+                        <div class="col-lg-8">
+                            <!-- Page Header -->
+                            <!-- Top Row -->
+                            <div class="header-top-row">
+                                <div class="center-section">
+                                    <div class="main-search-wrapper">
+                                        <input type="text" class="main-search-input" placeholder="بحث" />
+                                        <i class="fas fa-search search-icon"></i>
+                                    </div>
+                                </div>
+
+                                <div class="left-section">
+                                    <button class="header-icon-btn"><i class="fas fa-print"></i></button>
+                                    <button class="header-icon-btn"><i class="fas fa-file-import"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Profile Section -->
+                        <div class="col-lg-4 d-flex align-items-center justify-content-end gap-3">
+                            <!-- Notifications -->
+                            <div class="notification-wrapper position-relative">
+                                <button class="notification-btn" onclick="toggleNotifications()">
+                                    <i class="far fa-bell"></i>
+                                    <span class="notification-badge">3</span>
+                                </button>
+                                <div class="notification-dropdown" id="notificationDropdown">
+                                    <div class="dropdown-header">
+                                        <h3>الإشعارات</h3>
+                                        <a href="#" class="mark-all-read">تحديد الكل كمقروء</a>
+                                    </div>
+                                    <div class="dropdown-body">
+                                        <a href="#" class="notification-item unread">
+                                            <div class="notif-icon green"><i class="fas fa-check"></i></div>
+                                            <div class="notif-content">
+                                                <span class="notif-title">تم إضافة عميل جديد</span>
+                                                <span class="notif-desc">تم إضافة بيانات العميل الجديد بنجاح إلى
+                                                    النظام</span>
+                                                <span class="notif-time">منذ 5 دقائق</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notification-item unread">
+                                            <div class="notif-icon blue"><i class="fas fa-user-plus"></i></div>
+                                            <div class="notif-content">
+                                                <span class="notif-title">موظف جديد</span>
+                                                <span class="notif-desc">تم تسجيل مندوب مبيعات جديد في القاهرة</span>
+                                                <span class="notif-time">منذ ساعة</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notification-item">
+                                            <div class="notif-icon orange"><i class="fas fa-exclamation-triangle"></i>
+                                            </div>
+                                            <div class="notif-content">
+                                                <span class="notif-title">تنبيه المخزون</span>
+                                                <span class="notif-desc">الكمية المتاحة من الصنف قاربت على
+                                                    الانتهاء</span>
+                                                <span class="notif-time">منذ ساعتين</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-footer">
+                                        <a href="notifications.html" class="view-all-btn">عرض كل الإشعارات</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-image">
+                                    <img src="images/user.jpeg" alt="profile" />
+                                </div>
+                                <div class="profile-text">
+                                    <span class="welcome">مرحبًا</span>
+                                    <span class="name">محمد</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stats Cards Row -->
+                    <div class="row w-100 m-0 g-3">
+                        <div class="col-md-4">
+                            <div class="stat-card">
+                                <div class="stat-icon bg-green-light text-green">
+                                    <i class="fas fa-file-invoice-dollar"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-label">تقارير المبيعات</div>
+                                    <div class="stat-value">1,250</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="stat-card">
+                                <div class="stat-icon bg-orange-light text-orange-main">
+                                    <i class="fas fa-hand-holding-usd"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-label">تقارير التحصيل</div>
+                                    <div class="stat-value">350</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="stat-card">
+                                <div class="stat-icon bg-blue-light text-blue">
+                                    <i class="fas fa-sync-alt"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-label">تقارير التجديد</div>
+                                    <div class="stat-value">120</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Filter Bar -->
+                    <div class="row w-100 m-0">
+                        <div class="col-12 px-0">
+                            <div class="filters-bar-container">
+                                <div class="filter-icon-wrapper">
+                                    <i class="fas fa-sliders-h"></i>
+                                </div>
+
+                                <div class="filters-list">
+                                    <div class="filter-group">
+                                        <select class="filter-select">
+                                            <option selected disabled>المندوب</option>
+                                            <option value="all">الكل</option>
+                                            <option value="محمد حسن">محمد حسن</option>
+                                            <option value="خالد محمود">خالد محمود</option>
+                                        </select>
+                                    </div>
+                                    <div class="filter-group">
+                                        <select class="filter-select">
+                                            <option selected disabled>نوع التقرير</option>
+                                            <option value="all">الكل</option>
+                                            <option value="مبيعات">مبيعات</option>
+                                            <option value="عملاء">عملاء</option>
+                                            <option value="لم يجد">عملاء لم يجددوا</option>
+                                            <option value="أداء">أداء</option>
+                                        </select>
+                                    </div>
+                                    <div class="filter-group">
+                                        <select class="filter-select" id="reportYearFilter">
+                                            <option selected disabled>السنة</option>
+                                            <option value="2024">2024</option>
+                                            <option value="2025">2025</option>
+                                            <option value="2026">2026</option>
+                                        </select>
+                                    </div>
+                                    <div class="filter-group" id="reportMonthFilterGroup" style="display: none;">
+                                        <select class="filter-select" id="reportMonthFilter">
+                                            <option selected disabled>الشهر</option>
+                                            <option value="يناير">يناير</option>
+                                            <option value="فبراير">فبراير</option>
+                                            <option value="مارس">مارس</option>
+                                            <option value="أبريل">أبريل</option>
+                                            <option value="مايو">مايو</option>
+                                            <option value="يونيو">يونيو</option>
+                                            <option value="يوليو">يوليو</option>
+                                            <option value="أغسطس">أغسطس</option>
+                                            <option value="سبتمبر">سبتمبر</option>
+                                            <option value="أكتوبر">أكتوبر</option>
+                                            <option value="نوفمبر">نوفمبر</option>
+                                            <option value="ديسمبر">ديسمبر</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <button class="search-submit-btn"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reports List -->
+                    <div class="row w-100 m-0">
+                        <div class="col-12 px-0">
+                            <div class="reports-list-container premium-list-container">
+                                <table class="custom-table">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-id-header"></th>
+                                            <th>عنوان التقرير</th>
+                                            <th>النوع</th>
+                                            <th>التاريخ</th>
+                                            <th>المندوب</th>
+                                            <th>الإجمالي</th>
+
+                                            <th class="text-center">اجراءات</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Item 1 -->
+                                        <tr>
+                                            <td>1</td>
+                                            <td class="card-cell card-start">عميل لم يجدد الاشتراك - أحمد عصام</td>
+                                            <td class="card-cell">
+                                                <span class="report-type-badge warning"><i
+                                                        class="fas fa-user-clock"></i>
+                                                    لم يجدد</span>
+                                            </td>
+                                            <td class="card-cell">2026/01/25</td>
+                                            <td class="card-cell">أحمد عصام عبد الدايم</td>
+                                            <td class="card-cell">انتهى في 2025/12/31</td>
+
+                                            <td class="card-cell card-end text-center">
+                                                <div class="action-icons">
+                                                    <button class="action-btn-small download"><i
+                                                            class="fas fa-download"></i></button>
+                                                    <button class="action-btn-small view"><i
+                                                            class="fas fa-eye"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Item 2 -->
+                                        <tr>
+                                            <td>2</td>
+                                            <td class="card-cell card-start">عميل متأخر في الدفع - محمد حسن</td>
+                                            <td class="card-cell">
+                                                <span class="report-type-badge excel"><i
+                                                        class="fas fa-exclamation-circle"></i>
+                                                    دفعات</span>
+                                            </td>
+                                            <td class="card-cell">2026/01/24</td>
+                                            <td class="card-cell">محمد حسن علي</td>
+                                            <td class="card-cell">متبقي: 2,500 ج.م</td>
+
+                                            <td class="card-cell card-end text-center">
+                                                <div class="action-icons">
+                                                    <button class="action-btn-small download"><i
+                                                            class="fas fa-download"></i></button>
+                                                    <button class="action-btn-small view"><i
+                                                            class="fas fa-eye"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Item 3 -->
+                                        <tr>
+                                            <td>3</td>
+                                            <td class="card-cell card-start">عميل انتهى اشتراكه - خالد محمود</td>
+                                            <td class="card-cell">
+                                                <span class="report-type-badge pdf"><i
+                                                        class="fas fa-calendar-times"></i>
+                                                    منتهي</span>
+                                            </td>
+                                            <td class="card-cell">2026/01/20</td>
+                                            <td class="card-cell">خالد محمود فتحي</td>
+                                            <td class="card-cell">انتهى في 2026/01/15</td>
+
+                                            <td class="card-cell card-end text-center">
+                                                <div class="action-icons">
+                                                    <button class="action-btn-small download"><i
+                                                            class="fas fa-download"></i></button>
+                                                    <button class="action-btn-small view"><i
+                                                            class="fas fa-eye"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Item 4 -->
+                                        <tr>
+                                            <td>4</td>
+                                            <td class="card-cell card-start">عميل لم يدفع القسط - علي سعيد</td>
+                                            <td class="card-cell">
+                                                <span class="report-type-badge sheets"><i
+                                                        class="fas fa-money-bill-wave"></i>
+                                                    أقساط</span>
+                                            </td>
+                                            <td class="card-cell">2026/01/18</td>
+                                            <td class="card-cell">علي سعيد أحمد</td>
+                                            <td class="card-cell">قسط متأخر: 1,000 ج.م</td>
+
+                                            <td class="card-cell card-end text-center">
+                                                <div class="action-icons">
+                                                    <button class="action-btn-small download disabled"><i
+                                                            class="fas fa-download"></i></button>
+                                                    <button class="action-btn-small view"><i
+                                                            class="fas fa-eye"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="./js/bootstrap-bundle-min.js"></script>
+    <script src="./js/script.js"></script>
+
+</body>
+
+</html>

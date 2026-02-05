@@ -1,0 +1,290 @@
+﻿<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>الإشعارات - Med Guide</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="./css/bootstrap-min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+    <main>
+        <div class="row mx-auto">
+            <!-- Sidebar -->
+            <div class="col-lg-3 col-md-4 p-0 sidebar-wrapper" id="sidebar">
+                <button class="sidebar-toggle-arrow" id="sidebarToggle" onclick="toggleSidebar()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <aside>
+                    <div class="sidebar-container">
+                        <!-- Header -->
+                        <div class="page-header">
+                            <h1>Med Guide<br /><span>ميد جايد</span></h1>
+                        </div>
+
+                        <!-- Menu -->
+                        <nav class="sidebar-menu">
+                            <ul>
+                                <li><a href="index.html">الصفحة الرئيسية</a></li>
+                                <li><a href="customers.html">العملاء</a></li>
+                                <li><a href="employees.html">المندوبين</a></li>
+                                <li><a href="discounts.html">الخصومات</a></li>
+                                <li><a href="accounts.html">الحسابات</a></li>
+                                <li><a href="reports.html">التقارير</a></li>
+                                <li><a href="permissions.html">الأذونات</a></li>
+                                <li><a href="history.html">سجل النشاط</a></li>
+                                <li><a href="#">تسجيل الخروج</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9 col-md-8 p-0 content" id="mainContent">
+                <div class="content-wrapper d-flex flex-column gap-3">
+
+                    <!-- Top Header -->
+                    <div class="row w-100 m-0 justify-content-end align-items-center mb-4">
+                        <div class="col-lg-8">
+                            <!-- Search Pill Center -->
+                            <div class="main-search-wrapper">
+                                <input type="text" class="main-search-input" id="notificationSearch"
+                                    placeholder="بحث" />
+                                <i class="fas fa-search search-icon"></i>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 d-flex align-items-center justify-content-end gap-3">
+                            <!-- Notification Bell -->
+                            <div class="notification-wrapper position-relative">
+                                <button class="notification-btn active" id="notifDropdownBtn"
+                                    onclick="toggleNotifications()">
+                                    <i class="fas fa-bell"></i>
+                                    <span class="notification-badge">5</span>
+                                </button>
+                            </div>
+
+                            <div class="profile-card">
+                                <div class="profile-image">
+                                    <img src="images/user.jpeg" alt="profile" />
+                                </div>
+                                <div class="profile-text">
+                                    <span class="welcome">مرحبا</span>
+                                    <span class="name">محمد</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Page Content: Specialized Notification Center -->
+                    <div class="notifications-page-wrapper">
+
+                        <!-- Header -->
+                        <div class="n-page-header">
+                            <h1>مركز الإشعارات</h1>
+                            <p>لديك <span class="text-danger fw-bold">5</span> إشعارات جديدة تحتاج إلى مراجعة</p>
+                        </div>
+
+                        <!-- Filters -->
+                        <div class="n-filters">
+                            <button class="n-filter-btn active" data-filter="all">الكل</button>
+                            <button class="n-filter-btn" data-filter="unread">غير مقروء</button>
+                            <button class="n-filter-btn" data-filter="accounts">الحسابات</button>
+                            <button class="n-filter-btn" data-filter="customers">العملاء</button>
+                        </div>
+
+                        <!-- Timeline Group: Today -->
+                        <div class="n-timeline-group">
+                            <div class="n-timeline-title">اليوم</div>
+
+                            <!-- Card 1 -->
+                            <div class="n-card unread">
+                                <div class="n-icon-box green">
+                                    <i class="fas fa-file-invoice-dollar"></i>
+                                </div>
+                                <div class="n-content">
+                                    <div class="n-header-row">
+                                        <h3 class="n-title">تم إضافة فاتورة جديدة</h3>
+                                        <span class="n-time">منذ 5 دقائق</span>
+                                    </div>
+                                    <p class="n-desc">
+                                        تم إضافة فاتورة جديدة بقيمة <strong>5,000 جنيه</strong> للعميل أحمد عصام. يرجى
+                                        مراجعة التفاصيل والموافقة على الدفع إذا لزم الأمر.
+                                    </p>
+                                    <div class="n-actions">
+                                        <a href="accounts.html" class="n-btn n-btn-primary">
+                                            مراجعة الفاتورة <i class="fas fa-arrow-left"></i>
+                                        </a>
+                                        <button class="n-btn n-btn-secondary">
+                                            تحديد كمقروء
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div class="n-card unread">
+                                <div class="n-icon-box blue">
+                                    <i class="fas fa-user-plus"></i>
+                                </div>
+                                <div class="n-content">
+                                    <div class="n-header-row">
+                                        <h3 class="n-title">عميل جديد تمت إضافته</h3>
+                                        <span class="n-time">منذ ساعة</span>
+                                    </div>
+                                    <p class="n-desc">
+                                        تمت إضافة العميل <strong>محمد علي</strong> بنجاح إلى قاعدة البيانات. يمكنك الآن
+                                        البدء في إدارة حسابه ومعاملاته.
+                                    </p>
+                                    <div class="n-actions">
+                                        <a href="customers.html" class="n-btn n-btn-primary">
+                                            عرض ملف العميل
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 3 -->
+                            <div class="n-card unread">
+                                <div class="n-icon-box purple">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <div class="n-content">
+                                    <div class="n-header-row">
+                                        <h3 class="n-title">مندوب جديد انضم للفريق</h3>
+                                        <span class="n-time">منذ ساعتين</span>
+                                    </div>
+                                    <p class="n-desc">
+                                        انضم المندوب <strong>خالد محمود</strong> إلى فريق المبيعات في منطقة القاهرة. تم
+                                        تعيين 15 عميل له للمتابعة.
+                                    </p>
+                                    <div class="n-actions">
+                                        <a href="employees.html" class="n-btn n-btn-primary">
+                                            عرض ملف المندوب
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Group: Yesterday -->
+                        <div class="n-timeline-group">
+                            <div class="n-timeline-title">أمس</div>
+
+                            <!-- Card 4 -->
+                            <div class="n-card">
+                                <div class="n-icon-box orange">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div class="n-content">
+                                    <div class="n-header-row">
+                                        <h3 class="n-title">تنبيه: مخزون منخفض</h3>
+                                        <span class="n-time">أمس 04:30 م</span>
+                                    </div>
+                                    <p class="n-desc">
+                                        كمية المخزون من <strong>منتج الأسبرين</strong> أصبحت أقل من الحد الأدنى (50
+                                        وحدة). يرجى التواصل مع المورد لطلب كمية جديدة قريباً.
+                                    </p>
+                                    <div class="n-actions">
+                                        <a href="reports.html" class="n-btn n-btn-secondary">
+                                            مراجعة المخزون
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 5 -->
+                            <div class="n-card">
+                                <div class="n-icon-box green">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="n-content">
+                                    <div class="n-header-row">
+                                        <h3 class="n-title">تم الموافقة على الخصم</h3>
+                                        <span class="n-time">أمس 10:00 ص</span>
+                                    </div>
+                                    <p class="n-desc">
+                                        تمت الموافقة على طلب خصم بنسبة 15% للعميل <strong>سارة أحمد</strong>. الخصم ساري
+                                        المفعول من اليوم.
+                                    </p>
+                                    <div class="n-actions">
+                                        <a href="discounts.html" class="n-btn n-btn-secondary">
+                                            عرض الخصومات
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Group: This Week -->
+                        <div class="n-timeline-group">
+                            <div class="n-timeline-title">هذا الأسبوع</div>
+
+                            <!-- Card 6 -->
+                            <div class="n-card">
+                                <div class="n-icon-box blue">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="n-content">
+                                    <div class="n-header-row">
+                                        <h3 class="n-title">تقرير المبيعات الأسبوعي</h3>
+                                        <span class="n-time">منذ 3 أيام</span>
+                                    </div>
+                                    <p class="n-desc">
+                                        تم إنشاء تقرير المبيعات الأسبوعي. إجمالي المبيعات: <strong>125,000 جنيه</strong>
+                                        بزيادة 12% عن الأسبوع الماضي.
+                                    </p>
+                                    <div class="n-actions">
+                                        <a href="reports.html" class="n-btn n-btn-secondary">
+                                            عرض التقرير
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 7 -->
+                            <div class="n-card">
+                                <div class="n-icon-box purple">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="n-content">
+                                    <div class="n-header-row">
+                                        <h3 class="n-title">تحديث صلاحيات المستخدم</h3>
+                                        <span class="n-time">منذ 4 أيام</span>
+                                    </div>
+                                    <p class="n-desc">
+                                        تم تحديث صلاحيات المستخدم <strong>فاطمة حسن</strong> لتشمل الوصول إلى قسم
+                                        التقارير المالية.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- No Results Message -->
+                    <div id="noResultsMessage" class="no-results-message" style="display: none;">
+                        <div class="no-results-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>لا توجد نتائج مطابقة</h3>
+                        <p>لم نعثر على أي بيانات تطابق معايير البحث الخاصة بك.</p>
+                    </div>
+                    <!-- End Notifications Wrapper -->
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="./js/bootstrap-bundle-min.js"></script>
+    <script src="./js/script.js"></script>
+</body>

@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Financial</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="./css/bootstrap-min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+    <main>
+        <div class="row mx-auto">
+            <!-- Sidebar -->
+            <div class="col-lg-3 col-md-4 p-0 sidebar-wrapper" id="sidebar">
+                <!-- Sidebar Toggle Arrow -->
+                <button class="sidebar-toggle-arrow" id="sidebarToggle" onclick="toggleSidebar()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <aside>
+                    <div class="sidebar-container">
+                        <!-- Header -->
+                        <div class="page-header">
+                            <h1>Med Guide<br /><span>ميد جايد</span></h1>
+                        </div>
+
+                        <!-- Menu -->
+                        <nav class="sidebar-menu">
+                            <ul>
+                                <li>
+                                    <a href="index.html">
+                                        الصفحة الرئيسية
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="customers.html">
+                                        العملاء
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="employees.html" class="active">
+                                        المندوبين
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="discounts.html">
+                                        الخصومات
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="accounts.html">
+                                        الحسابات
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="reports.html">
+                                        التقارير
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="permissions.html">
+                                        الأذونات
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="history.html">
+                                        سجل النشاط
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        تسجيل الخروج
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9 col-md-8 p-0 content employees-main-bg" id="mainContent">
+                <div class="content-wrapper d-flex flex-column gap-3">
+                    <!-- Top Section: Header & Profile -->
+                    <div class="row w-100 m-0 justify-content-between align-items-center">
+                        <div class="col-lg-8">
+                            <!-- Page Header -->
+                            <!-- Top Row -->
+                            <div class="header-top-row">
+                                <div class="right-section">
+                                    <a href="add-employee.html" class="add-customer-btn">
+                                        <i class="fas fa-user-plus"></i>
+                                        <span>إضافة مندوب</span>
+                                    </a>
+                                </div>
+
+                                <div class="center-section">
+                                    <div class="main-search-wrapper">
+                                        <input type="text" class="main-search-input" placeholder="بحث" />
+                                        <i class="fas fa-search search-icon"></i>
+                                    </div>
+                                </div>
+
+                                <div class="left-section">
+                                    <!-- Icons in image: Leftmost is File/Export, Next is Printer? -->
+                                    <button class="header-icon-btn"><i class="fas fa-print"></i></button>
+                                    <button class="header-icon-btn"><i class="fas fa-file-import"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Profile Section -->
+                        <div class="col-lg-4 d-flex align-items-center justify-content-end gap-3">
+                            <!-- Notifications -->
+                            <div class="notification-wrapper position-relative">
+                                <button class="notification-btn" onclick="toggleNotifications()">
+                                    <i class="far fa-bell"></i>
+                                    <span class="notification-badge">3</span>
+                                </button>
+                                <div class="notification-dropdown" id="notificationDropdown">
+                                    <div class="dropdown-header">
+                                        <h3>الإشعارات</h3>
+                                        <a href="#" class="mark-all-read">تحديد الكل كمقروء</a>
+                                    </div>
+                                    <div class="dropdown-body">
+                                        <a href="#" class="notification-item unread">
+                                            <div class="notif-icon green"><i class="fas fa-check"></i></div>
+                                            <div class="notif-content">
+                                                <span class="notif-title">تم إضافة عميل جديد</span>
+                                                <span class="notif-desc">تم إضافة بيانات العميل الجديد بنجاح إلى
+                                                    النظام</span>
+                                                <span class="notif-time">منذ 5 دقائق</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notification-item unread">
+                                            <div class="notif-icon blue"><i class="fas fa-user-plus"></i></div>
+                                            <div class="notif-content">
+                                                <span class="notif-title">موظف جديد</span>
+                                                <span class="notif-desc">تم تسجيل مندوب مبيعات جديد في
+                                                    القاهرة</span>
+                                                <span class="notif-time">منذ ساعة</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notification-item">
+                                            <div class="notif-icon orange"><i class="fas fa-exclamation-triangle"></i>
+                                            </div>
+                                            <div class="notif-content">
+                                                <span class="notif-title">تنبيه المخزون</span>
+                                                <span class="notif-desc">الكمية المتاحة من الصنف قاربت على
+                                                    الانتهاء</span>
+                                                <span class="notif-time">منذ ساعتين</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-footer">
+                                        <a href="notifications.html" class="view-all-btn">عرض كل الإشعارات</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-image">
+                                    <img src="images/user.jpeg" alt="profile" />
+                                </div>
+                                <div class="profile-text">
+                                    <span class="welcome">مرحبًا</span>
+                                    <span class="name">محمد</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Employee Grid Section (Full Width) -->
+                    <div class="row w-100 m-0">
+                        <div class="col-12">
+                            <div class="employee-grid row">
+                                <!-- Card 1 -->
+                                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                    <div class="employee-card">
+                                        <div class="card-star"><img src="images/star.png" class="card-star-img"
+                                                alt="star"></div>
+                                        <div class="card-number">1</div>
+                                        <div class="card-avatar">
+                                            <img src="images/user.jpeg" alt="Employee" />
+                                        </div>
+                                        <div class="card-info">
+                                            <div class="card-name">أحمد عصام عبد الدايم</div>
+                                            <div class="card-role">مسئول تسويق</div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="card-stat active">
+                                                <div class="card-stat-label">نشط</div>
+                                                <div class="card-stat-value">95</div>
+                                            </div>
+                                            <div class="card-divider"></div>
+                                            <div class="card-stat pending">
+                                                <div class="card-stat-label">معلق</div>
+                                                <div class="card-stat-value">7</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card 2 -->
+                                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                    <div class="employee-card">
+                                        <div class="card-number">2</div>
+                                        <div class="card-avatar">
+                                            <img src="images/user.jpeg" alt="Employee" />
+                                        </div>
+                                        <div class="card-info">
+                                            <div class="card-name">ماهر خليل سيد</div>
+                                            <div class="card-role">مسئول تسويق</div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="card-stat active">
+                                                <div class="card-stat-label">نشط</div>
+                                                <div class="card-stat-value">23</div>
+                                            </div>
+                                            <div class="card-divider"></div>
+                                            <div class="card-stat pending">
+                                                <div class="card-stat-label">معلق</div>
+                                                <div class="card-stat-value">2</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card 3 -->
+                                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                    <div class="employee-card">
+                                        <div class="card-number">3</div>
+                                        <div class="card-avatar">
+                                            <img src="images/user.jpeg" alt="Employee" />
+                                        </div>
+                                        <div class="card-info">
+                                            <div class="card-name">سلوى مراد نجيب</div>
+                                            <div class="card-role">مسئول تسويق</div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="card-stat active">
+                                                <div class="card-stat-label">نشط</div>
+                                                <div class="card-stat-value">95</div>
+                                            </div>
+                                            <div class="card-divider"></div>
+                                            <div class="card-stat pending">
+                                                <div class="card-stat-label">معلق</div>
+                                                <div class="card-stat-value">7</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card 4 -->
+                                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                    <div class="employee-card">
+                                        <div class="card-number">4</div>
+                                        <div class="card-avatar">
+                                            <img src="images/user.jpeg" alt="Employee" />
+                                        </div>
+                                        <div class="card-info">
+                                            <div class="card-name">ماهر خليل سيد</div>
+                                            <div class="card-role">مسئول تسويق</div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="card-stat active">
+                                                <div class="card-stat-label">نشط</div>
+                                                <div class="card-stat-value">23</div>
+                                            </div>
+                                            <div class="card-divider"></div>
+                                            <div class="card-stat pending">
+                                                <div class="card-stat-label">معلق</div>
+                                                <div class="card-stat-value">2</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row w-100 m-0">
+                        <div class="col-12">
+                            <!-- Customers List -->
+                            <div class="employees-list-container premium-list-container">
+                                <table class="custom-table">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-th-id"></th>
+                                            <th class="col-th-code">الكود</th>
+                                            <th>الاسم</th>
+                                            <th>عدد الأشهر</th>
+                                            <th>نشط</th>
+                                            <th>غير نشط</th>
+                                            <th>معلق</th>
+                                            <th>اجمالي</th>
+                                            <th>كل العملاء</th>
+                                            <th>الشهر السابق</th>
+                                            <th class="col-th-actions"></th>
+                                            <th class="col-th-icon"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Item 1 -->
+                                        <tr>
+                                            <td>1</td>
+                                            <td class="card-cell card-start">0032</td>
+                                            <td class="card-cell">أحمد عصام عبد الدايم</td>
+                                            <td class="card-cell">15</td>
+                                            <td class="card-cell text-active-count">69</td>
+                                            <td class="card-cell text-inactive-count">3</td>
+                                            <td class="card-cell">0</td>
+                                            <td class="card-cell">203</td>
+                                            <td class="card-cell">250</td>
+                                            <td class="card-cell">20</td>
+                                            <td class="card-cell card-end">
+                                                <div class="action-icons">
+                                                    <div class="icon-wrapper" data-tooltip="الموظف المثالي">
+                                                        <img src="images/star.png"
+                                                            class="action-icon-img action-icon-star active" alt="star">
+                                                    </div>
+                                                    <div class="icon-wrapper" data-tooltip="حقق التارجت">
+                                                        <img src="images/goal.png"
+                                                            class="action-icon-img action-icon-goal" alt="goal">
+                                                    </div>
+                                                    <div class="icon-wrapper"
+                                                        data-tooltip="حقق تارجت للمرة الثالثة تواليا">
+                                                        <img src="images/fire.png"
+                                                            class="action-icon-img action-icon-fire" alt="fire">
+                                                    </div>
+                                                    <div class="icon-wrapper" data-tooltip="لم يحقق التارجت">
+                                                        <i class="fas fa-tag action-icon"></i>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <a href="edit-employee.html" class="external-icon-link">
+                                                    <img src="images/external-icon.png" alt="external">
+                                                </a>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Item 2 -->
+                                        <tr>
+                                            <td>2</td>
+                                            <td class="card-cell card-start">0032</td>
+                                            <td class="card-cell">أحمد عصام عبد الدايم</td>
+                                            <td class="card-cell">15</td>
+                                            <td class="card-cell text-active-count">69</td>
+                                            <td class="card-cell text-inactive-count">3</td>
+                                            <td class="card-cell">0</td>
+                                            <td class="card-cell">203</td>
+                                            <td class="card-cell">250</td>
+                                            <td class="card-cell">20</td>
+                                            <td class="card-cell card-end">
+                                                <div class="action-icons">
+                                                    <div class="icon-wrapper" data-tooltip="الموظف المثالي">
+                                                        <img src="images/star.png"
+                                                            class="action-icon-img action-icon-star" alt="star">
+                                                    </div>
+                                                    <div class="icon-wrapper" data-tooltip="حقق التارجت">
+                                                        <img src="images/goal.png"
+                                                            class="action-icon-img action-icon-goal active" alt="goal">
+                                                    </div>
+                                                    <div class="icon-wrapper"
+                                                        data-tooltip="حقق التارجيت للمرة الثالثة على التوالي">
+                                                        <img src="images/fire.png"
+                                                            class="action-icon-img action-icon-fire" alt="fire">
+                                                    </div>
+                                                    <div class="icon-wrapper" data-tooltip="لم يحقق التارجت">
+                                                        <i class="fas fa-tag action-icon"></i>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <a href="edit-employee.html" class="external-icon-link">
+                                                    <img src="images/external-icon.png" alt="external">
+                                                </a>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Item 3 -->
+                                        <tr>
+                                            <td>3</td>
+                                            <td class="card-cell card-start">0032</td>
+                                            <td class="card-cell">أحمد عصام عبد الدايم</td>
+                                            <td class="card-cell">15</td>
+                                            <td class="card-cell text-active-count">69</td>
+                                            <td class="card-cell text-inactive-count">3</td>
+                                            <td class="card-cell">0</td>
+                                            <td class="card-cell">203</td>
+                                            <td class="card-cell">250</td>
+                                            <td class="card-cell">20</td>
+                                            <td class="card-cell card-end">
+                                                <div class="action-icons">
+                                                    <div class="icon-wrapper" data-tooltip="الموظف المثالي">
+                                                        <img src="images/star.png"
+                                                            class="action-icon-img action-icon-star" alt="star">
+                                                    </div>
+                                                    <div class="icon-wrapper" data-tooltip="حقق التارجت">
+                                                        <img src="images/goal.png"
+                                                            class="action-icon-img action-icon-goal active" alt="goal">
+                                                    </div>
+                                                    <div class="icon-wrapper"
+                                                        data-tooltip="حقق التارجيت للمرة الثالثة على التوالي">
+                                                        <img src="images/fire.png"
+                                                            class="action-icon-img action-icon-fire" alt="fire">
+                                                    </div>
+                                                    <div class="icon-wrapper" data-tooltip="لم يحقق التارجت">
+                                                        <i class="fas fa-tag action-icon"></i>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <a href="edit-employee.html" class="external-icon-link">
+                                                    <img src="images/external-icon.png" alt="external">
+                                                </a>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Item 4 -->
+                                        <tr>
+                                            <td>4</td>
+                                            <td class="card-cell card-start">0032</td>
+                                            <td class="card-cell">أحمد عصام عبد الدايم</td>
+                                            <td class="card-cell">15</td>
+                                            <td class="card-cell text-active-count">69</td>
+                                            <td class="card-cell text-inactive-count">3</td>
+                                            <td class="card-cell">0</td>
+                                            <td class="card-cell">203</td>
+                                            <td class="card-cell">250</td>
+                                            <td class="card-cell">20</td>
+                                            <td class="card-cell card-end">
+                                                <div class="action-icons">
+                                                    <div class="icon-wrapper" data-tooltip="الموظف المثالي">
+                                                        <img src="images/star.png"
+                                                            class="action-icon-img action-icon-star" alt="star">
+                                                    </div>
+                                                    <div class="icon-wrapper" data-tooltip="حقق التارجت">
+                                                        <img src="images/goal.png"
+                                                            class="action-icon-img action-icon-goal active" alt="goal">
+                                                    </div>
+                                                    <div class="icon-wrapper"
+                                                        data-tooltip="محقق تارجت للمرة الثالثة تواليا">
+                                                        <img src="images/fire.png"
+                                                            class="action-icon-img action-icon-fire" alt="fire">
+                                                    </div>
+                                                    <div class="icon-wrapper" data-tooltip="مش محقق تارجت">
+                                                        <i class="fas fa-tag action-icon" style="font-size: 16px;"></i>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <a href="edit-employee.html" class="external-icon-link">
+                                                    <img src="images/external-icon.png" alt="external">
+                                                </a>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Item 5 -->
+                                        <tr>
+                                            <td>5</td>
+                                            <td class="card-cell card-start">0032</td>
+                                            <td class="card-cell">أحمد عصام عبد الدايم</td>
+                                            <td class="card-cell">15</td>
+                                            <td class="card-cell text-active-count">69</td>
+                                            <td class="card-cell text-inactive-count">3</td>
+                                            <td class="card-cell">0</td>
+                                            <td class="card-cell">203</td>
+                                            <td class="card-cell">250</td>
+                                            <td class="card-cell">20</td>
+                                            <td class="card-cell card-end">
+                                                <div class="action-icons">
+                                                    <div class="icon-wrapper" data-tooltip="الموظف المثالي">
+                                                        <img src="images/star.png"
+                                                            class="action-icon-img action-icon-star" alt="star">
+                                                    </div>
+                                                    <div class="icon-wrapper" data-tooltip="حقق التارجت">
+                                                        <img src="images/goal.png"
+                                                            class="action-icon-img action-icon-goal active" alt="goal">
+                                                    </div>
+                                                    <div class="icon-wrapper"
+                                                        data-tooltip="حقق التارجيت للمرة الثالثة على التوالي">
+                                                        <img src="images/fire.png"
+                                                            class="action-icon-img action-icon-fire" alt="fire">
+                                                    </div>
+                                                    <div class="icon-wrapper" data-tooltip="لم يحقق التارجت">
+                                                        <i class="fas fa-tag action-icon"></i>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <a href="edit-employee.html" class="external-icon-link">
+                                                    <img src="images/external-icon.png" alt="external">
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="./js/bootstrap-bundle-min.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

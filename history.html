@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>سجل النشاط - Dashboard Financial</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="./css/bootstrap-min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+</head>
+
+<body>
+    <main>
+        <div class="row mx-auto">
+            <!-- Sidebar -->
+            <div class="col-lg-3 col-md-4 p-0 sidebar-wrapper" id="sidebar">
+                <!-- Sidebar Toggle Arrow -->
+                <button class="sidebar-toggle-arrow" id="sidebarToggle" onclick="toggleSidebar()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <aside>
+                    <div class="sidebar-container">
+                        <!-- Header -->
+                        <div class="page-header">
+                            <h1>Med Guide<br /><span>ميد جايد</span></h1>
+                        </div>
+
+                        <!-- Menu -->
+                        <nav class="sidebar-menu">
+                            <ul>
+                                <li>
+                                    <a href="index.html">
+                                        الصفحة الرئيسية
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="customers.html">
+                                        العملاء
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="employees.html">
+                                        المندوبين
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="discounts.html">
+                                        الخصومات
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="accounts.html">
+                                        الحسابات
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="reports.html">
+                                        التقارير
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="permissions.html">
+                                        الأذونات
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="history.html" class="active">
+                                        <span>سجل النشاط</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        تسجيل الخروج
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9 col-md-8 p-0 content" id="mainContent">
+                <div class="content-wrapper d-flex flex-column gap-3">
+                    <!-- Top Section: Header & Profile -->
+                    <div class="row w-100 m-0 justify-content-between">
+                        <div class="col-lg-8">
+                            <!-- Page Header -->
+                            <!-- Top Row -->
+                            <div class="header-top-row">
+                                <div class="center-section">
+                                    <div class="main-search-wrapper">
+                                        <input type="text" class="main-search-input" placeholder="بحث" />
+                                        <i class="fas fa-search search-icon"></i>
+                                    </div>
+                                </div>
+
+                                <div class="left-section">
+                                    <button class="header-icon-btn"><i class="fas fa-print"></i></button>
+                                    <button class="header-icon-btn"><i class="fas fa-file-import"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Profile Section -->
+                        <div class="col-lg-4 d-flex align-items-center justify-content-end gap-3">
+                            <!-- Notifications -->
+                            <div class="notification-wrapper position-relative">
+                                <button class="notification-btn" onclick="toggleNotifications()">
+                                    <i class="far fa-bell"></i>
+                                    <span class="notification-badge">3</span>
+                                </button>
+                                <div class="notification-dropdown" id="notificationDropdown">
+                                    <div class="dropdown-header">
+                                        <h3>الإشعارات</h3>
+                                        <a href="#" class="mark-all-read">تحديد الكل كمقروء</a>
+                                    </div>
+                                    <div class="dropdown-body">
+                                        <a href="#" class="notification-item unread">
+                                            <div class="notif-icon green"><i class="fas fa-check"></i></div>
+                                            <div class="notif-content">
+                                                <span class="notif-title">تم إضافة عميل جديد</span>
+                                                <span class="notif-desc">تم إضافة بيانات العميل الجديد بنجاح إلى
+                                                    النظام</span>
+                                                <span class="notif-time">منذ 5 دقائق</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notification-item unread">
+                                            <div class="notif-icon blue"><i class="fas fa-user-plus"></i></div>
+                                            <div class="notif-content">
+                                                <span class="notif-title">موظف جديد</span>
+                                                <span class="notif-desc">تم تسجيل مندوب مبيعات جديد في القاهرة</span>
+                                                <span class="notif-time">منذ ساعة</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notification-item">
+                                            <div class="notif-icon orange"><i class="fas fa-exclamation-triangle"></i>
+                                            </div>
+                                            <div class="notif-content">
+                                                <span class="notif-title">تنبيه المخزون</span>
+                                                <span class="notif-desc">الكمية المتاحة من الصنف قاربت على
+                                                    الانتهاء</span>
+                                                <span class="notif-time">منذ ساعتين</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-footer">
+                                        <a href="notifications.html" class="view-all-btn">عرض كل الإشعارات</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-image">
+                                    <img src="images/user.jpeg" alt="profile" />
+                                </div>
+                                <div class="profile-text">
+                                    <span class="welcome">مرحبًا</span>
+                                    <span class="name">محمد</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row w-100 m-0">
+                        <div class="col-12 px-0">
+                            <!-- History List -->
+                            <div class="customers-list-container premium-list-container">
+                                <table class="custom-table history-table" id="historyTable">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>الإجراء</th>
+                                            <th>المستخدم</th>
+                                            <th>التوقيت</th>
+                                            <th>التفاصيل</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="historyTableBody">
+                                        <!-- Static Example Item 1 -->
+                                        <tr>
+                                            <td>1</td>
+                                            <td class="card-cell card-start fw-bold text-dark">تسجيل دخول</td>
+                                            <td class="card-cell">
+                                                <div class="d-flex align-items-center justify-content-center gap-2">
+                                                    <img src="images/user.jpeg" class="rounded-circle">
+                                                    <span>محمد</span>
+                                                </div>
+                                            </td>
+                                            <td class="card-cell">
+                                                <span class="history-time" dir="ltr">2026/01/28 | 09:30 AM</span>
+                                            </td>
+                                            <td class="card-cell card-end text-muted small">تسجيل دخول ناجح إلى النظام
+                                            </td>
+                                        </tr>
+
+                                        <!-- Static Example Item 2 -->
+                                        <tr>
+                                            <td>2</td>
+                                            <td class="card-cell card-start fw-bold text-dark">إضافة عميل</td>
+                                            <td class="card-cell">
+                                                <div class="d-flex align-items-center justify-content-center gap-2">
+                                                    <img src="images/user.jpeg" class="rounded-circle">
+                                                    <span>محمد</span>
+                                                </div>
+                                            </td>
+                                            <td class="card-cell">
+                                                <span class="history-time" dir="ltr">2026/01/28 | 10:15 AM</span>
+                                            </td>
+                                            <td class="card-cell card-end text-muted small">تم إضافة عميل جديد: أحمد
+                                                عصام</td>
+                                        </tr>
+
+                                        <!-- Static Example Item 3 -->
+                                        <tr>
+                                            <td>3</td>
+                                            <td class="card-cell card-start fw-bold text-dark">تعديل بيانات</td>
+                                            <td class="card-cell">
+                                                <div class="d-flex align-items-center justify-content-center gap-2">
+                                                    <img src="images/user.jpeg" class="rounded-circle">
+                                                    <span>محمد</span>
+                                                </div>
+                                            </td>
+                                            <td class="card-cell">
+                                                <span class="history-time" dir="ltr">2026/01/28 | 11:00 AM</span>
+                                            </td>
+                                            <td class="card-cell card-end text-muted small">تحديث بيانات المندوب: علي
+                                                حسن</td>
+                                        </tr>
+
+                                        <!-- Static Example Item 4 -->
+                                        <tr>
+                                            <td>4</td>
+                                            <td class="card-cell card-start fw-bold text-dark">حذف فاتورة</td>
+                                            <td class="card-cell">
+                                                <div class="d-flex align-items-center justify-content-center gap-2">
+                                                    <img src="images/user.jpeg" class="rounded-circle">
+                                                    <span>محمد</span>
+                                                </div>
+                                            </td>
+                                            <td class="card-cell">
+                                                <span class="history-time" dir="ltr">2026/01/28 | 01:45 PM</span>
+                                            </td>
+                                            <td class="card-cell card-end text-muted small">حذف الفاتورة رقم #5021</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div id="noHistoryMsg" class="no-results-message" style="display: none;">
+                                    <div class="no-results-content">
+                                        <div class="icon-wrapper">
+                                            <i class="fas fa-history"></i>
+                                        </div>
+                                        <h3 class="no-results-title">لا يوجد سجل نشاط</h3>
+                                        <p class="no-results-desc">لم يتم تسجيل أي إجراءات حتى الآن.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="./js/bootstrap-bundle-min.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

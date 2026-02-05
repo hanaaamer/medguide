@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Financial - Add Discount</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link href="./css/bootstrap-min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+    <main>
+        <div class="row mx-auto">
+            <!-- Sidebar -->
+            <div class="col-lg-3 col-md-4 p-0 sidebar-wrapper" id="sidebar">
+                <!-- Sidebar Toggle Arrow -->
+                <button class="sidebar-toggle-arrow" id="sidebarToggle" onclick="toggleSidebar()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <aside>
+                    <div class="sidebar-container">
+                        <!-- Header -->
+                        <div class="page-header">
+                            <h1>Med Guide<br /><span>ميد جايد</span></h1>
+                        </div>
+
+                        <!-- Menu -->
+                        <nav class="sidebar-menu">
+                            <ul>
+                                <li>
+                                    <a href="index.html">
+                                        <span>الصفحة الرئيسية</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="customers.html">
+                                        العملاء
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="employees.html">
+                                        المندوبين
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="discounts.html" class="active">
+                                        الخصومات
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="accounts.html">
+                                        الحسابات
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="reports.html">
+                                        التقارير
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="permissions.html">
+                                        الأذونات
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="history.html">
+                                        سجل النشاط
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        تسجيل الخروج
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9 col-md-8 p-0 content" id="mainContent">
+                <div class="content-wrapper">
+                    <div class="row w-100 m-0 justify-content-between">
+                        <div class="col-lg-8">
+                            <!-- بيانات الجهة Section -->
+                            <div class="form-section">
+                                <h2 class="form-title">بيانات الجهة</h2>
+
+                                <div class="input-row with-image-upload">
+
+                                    <div class="input-group">
+                                        <input type="text" placeholder="اسم الجهة" />
+                                    </div>
+                                    <div class="image-upload-wrapper square-upload">
+                                        <input type="file" id="entityImage" accept="image/*" hidden
+                                            onchange="handleImageUpload(this, 'entityPreview')" />
+                                        <label for="entityImage" class="image-upload-label">
+                                            <div class="upload-content" id="entityPreviewContent">
+                                                <span>شعار</span>
+                                                <img src="images/image-icon.png" alt="" class="image-icon">
+                                            </div>
+                                            <img id="entityPreview" class="image-preview" style="display: none;" />
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="input-row">
+                                    <div class="input-group">
+                                        <input type="number" placeholder="نسبة الخصم (%)" min="0" max="100" />
+                                    </div>
+                                </div>
+
+                                <div class="input-row">
+                                    <div class="input-group">
+                                        <select name="entityType" required>
+                                            <option value="" disabled selected>نوع الجهة</option>
+                                            <option value="government">حكومي</option>
+                                            <option value="private">خاص</option>
+                                        </select>
+                                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                                    </div>
+                                </div>
+
+                                <div class="input-row with-button">
+                                    <button class="submit-btn">حفظ البيانات</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Profile Section -->
+                        <div class="col-lg-4 d-flex justify-content-end gap-3">
+                            <!-- Notifications -->
+                            <div class="notification-wrapper position-relative">
+                                <button class="notification-btn" onclick="toggleNotifications()">
+                                    <i class="far fa-bell"></i>
+                                    <span class="notification-badge">3</span>
+                                </button>
+                                <div class="notification-dropdown" id="notificationDropdown">
+                                    <div class="dropdown-header">
+                                        <h3>الإشعارات</h3>
+                                        <a href="#" class="mark-all-read">تحديد الكل كمقروء</a>
+                                    </div>
+                                    <div class="dropdown-body">
+                                        <a href="#" class="notification-item unread">
+                                            <div class="notif-icon green"><i class="fas fa-check"></i></div>
+                                            <div class="notif-content">
+                                                <span class="notif-title">تم إضافة عميل جديد</span>
+                                                <span class="notif-desc">تم إضافة بيانات العميل الجديد بنجاح إلى
+                                                    النظام</span>
+                                                <span class="notif-time">منذ 5 دقائق</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notification-item unread">
+                                            <div class="notif-icon blue"><i class="fas fa-user-plus"></i></div>
+                                            <div class="notif-content">
+                                                <span class="notif-title">موظف جديد</span>
+                                                <span class="notif-desc">تم تسجيل مندوب مبيعات جديد في
+                                                    القاهرة</span>
+                                                <span class="notif-time">منذ ساعة</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notification-item">
+                                            <div class="notif-icon orange"><i class="fas fa-exclamation-triangle"></i>
+                                            </div>
+                                            <div class="notif-content">
+                                                <span class="notif-title">تنبيه المخزون</span>
+                                                <span class="notif-desc">الكمية المتاحة من الصنف قاربت على
+                                                    الانتهاء</span>
+                                                <span class="notif-time">منذ ساعتين</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-footer">
+                                        <a href="notifications.html" class="view-all-btn">عرض كل الإشعارات</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-image">
+                                    <img src="images/user.jpeg" alt="profile" />
+                                </div>
+                                <div class="profile-text">
+                                    <span class="welcome">مرحبًا</span>
+                                    <span class="name">محمد</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="./js/bootstrap-bundle-min.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Financial - Edit Employee</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link href="./css/bootstrap-min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+    <main>
+        <div class="row mx-auto">
+            <!-- Sidebar -->
+            <div class="col-lg-3 col-md-4 p-0 sidebar-wrapper" id="sidebar">
+                <!-- Sidebar Toggle Arrow -->
+                <button class="sidebar-toggle-arrow" id="sidebarToggle" onclick="toggleSidebar()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <aside>
+                    <div class="sidebar-container">
+                        <!-- Header -->
+                        <div class="page-header">
+                            <h1>Med Guide<br /><span>ميد جايد</span></h1>
+                        </div>
+                        <!-- Menu -->
+                        <nav class="sidebar-menu">
+                            <ul>
+                                <li>
+                                    <a href="index.html">
+                                        الصفحة الرئيسية
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="customers.html" class="active">
+                                        العملاء
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="employees.html">
+                                        المندوبين
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        الحسابات
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        التقارير
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        الأذونات
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="history.html">
+                                        سجل النشاط
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        تسجيل الخروج
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9 col-md-8 p-0 content" id="mainContent">
+                <div class="content-wrapper">
+                    <div class="col-lg-8">
+                        <!-- Customer Profile Hero -->
+                        <!-- Customer Profile Hero -->
+                        <div class="customer-profile-hero profile-hero-clean">
+                            <div class="profile-header-card">
+                                <div class="profile-avatar-section">
+                                    <div class="profile-img-large">
+                                        <img src="images/user.jpeg" alt="profile">
+                                    </div>
+                                    <div class="profile-icon-overlay">
+                                        <i class="fas fa-file-invoice"></i>
+                                    </div>
+                                </div>
+
+                                <div class="profile-details-section">
+                                    <h2 class="profile-name-large">ايمن جلال عبد الخالق</h2>
+                                    <p class="profile-role-large">مهندس بالمحاجر</p>
+                                    <span class="status-badge-large">نشط</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Customer Data Form -->
+                        <form class="customer-form">
+                            <div class="row g-3">
+                                <!-- Row 1 -->
+                                <div class="col-md-6">
+                                    <div class="info-group">
+                                        <label>كود</label>
+                                        <div class="input-wrapper">
+                                            <input type="text" value="3504290" required />
+                                            <img src="images/edit-icon.png" class="input-icon" alt="edit">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="info-group">
+                                        <label>نوع الكارت</label>
+                                        <div class="input-group">
+                                            <select name="cardType" class="w-100">
+                                                <option value="ذهبي" selected>ذهبي</option>
+                                                <option value="عادي">عادي</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Row 2 -->
+                                <div class="col-md-6">
+                                    <div class="info-group">
+                                        <label>جهة العمل</label>
+                                        <div class="input-wrapper">
+                                            <input type="text" value="المحاجر" required />
+                                            <img src="images/edit-icon.png" class="input-icon" alt="edit">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="info-group">
+                                        <label>نوع الجهة</label>
+                                        <div class="input-group">
+                                            <select name="entityType" class="w-100">
+                                                <option value="government">حكومي</option>
+                                                <option value="private">قطاع خاص</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="info-group">
+                                        <label>المهنة</label>
+                                        <div class="input-wrapper">
+                                            <input type="text" value="مهندس" required />
+                                            <img src="images/edit-icon.png" class="input-icon" alt="edit">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Row 3 -->
+                                <div class="col-md-6">
+                                    <div class="info-group">
+                                        <label>رقم الهاتف</label>
+                                        <div class="input-wrapper">
+                                            <input type="text" value="01023546855" required />
+                                            <img src="images/edit-icon.png" class="input-icon" alt="edit">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="info-group">
+                                        <label>المحافظة</label>
+                                        <div class="input-wrapper">
+                                            <input type="text" value="بني سويف" required />
+                                            <img src="images/edit-icon.png" class="input-icon" alt="edit">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Row 4 -->
+                                <div class="col-md-6">
+                                    <div class="info-group">
+                                        <label>المركز</label>
+                                        <div class="input-wrapper">
+                                            <input type="text" value="اهناسيا" required />
+                                            <img src="images/edit-icon.png" class="input-icon" alt="edit">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="info-group">
+                                        <label>الحي</label>
+                                        <div class="input-wrapper">
+                                            <input type="text" value="شارع البشرى بجوار مغلة النور" required />
+                                            <img src="images/edit-icon.png" class="input-icon" alt="edit">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Row 5 -->
+                                <div class="col-md-6">
+                                    <div class="info-group">
+                                        <label>تاريخ الاشتراك</label>
+                                        <div class="input-wrapper">
+                                            <input type="date" value="2024-05-02" class="form-control-custom"
+                                                style="padding-left: 15px;" required />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Family Data Split -->
+                            <div class="row g-3 mt-4">
+                                <div class="col-md-6">
+                                    <div class="info-group">
+                                        <label>الاب</label>
+                                        <div class="input-wrapper">
+                                            <input type="text" value="جلال عبد الخالق" />
+                                            <img src="images/edit-icon.png" class="input-icon" alt="edit">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="info-group">
+                                        <label>الام</label>
+                                        <div class="input-wrapper">
+                                            <input type="text" value="زينب راضي" />
+                                            <img src="images/edit-icon.png" class="input-icon" alt="edit">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="info-group">
+                                        <label>الزوجة</label>
+                                        <div class="input-wrapper">
+                                            <input type="text" value="علية فوزي" />
+                                            <img src="images/edit-icon.png" class="input-icon" alt="edit">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="info-group">
+                                        <label>الاخوات</label>
+                                        <div class="input-wrapper">
+                                            <input type="text" value="رجب - فاروق" />
+                                            <img src="images/edit-icon.png" class="input-icon" alt="edit">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Payment Section -->
+                            <div class="row g-3 mt-4 align-items-end">
+                                <div class="col-md-4">
+                                    <div class="info-group">
+                                        <label>سدد</label>
+                                        <div class="input-wrapper">
+                                            <input type="text" placeholder="أدخل قيمة الاشتراك" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="info-group">
+                                        <label>المتبقي</label>
+                                        <div class="input-wrapper">
+                                            <input type="text" placeholder="أدخل قيمة المتبقي" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="info-group">
+                                        <label>كوبون خصم</label>
+                                        <div class="input-wrapper">
+                                            <input type="text" placeholder="أدخل قيمة الخصم" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="info-group">
+                                        <label>التاريخ</label>
+                                        <div class="input-wrapper">
+                                            <input type="date" class="form-control-custom"
+                                                style="padding-left: 15px;" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="info-group">
+                                        <label>الوقت</label>
+                                        <div class="input-wrapper">
+                                            <input type="time" class="form-control-custom"
+                                                style="padding-left: 15px;" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <button type="button" class="btn-pay" onclick="validateAndSubmit(event)">إدفع</button>
+
+                        </form>
+                    </div>
+                    <!-- Profile Section -->
+                    <div class="col-lg-4 d-flex justify-content-end gap-3">
+                        <div class="notification-wrapper position-relative">
+                            <button class="notification-btn" onclick="toggleNotifications()">
+                                <i class="far fa-bell"></i>
+                                <span class="notification-badge">3</span>
+                            </button>
+                            <div class="notification-dropdown" id="notificationDropdown">
+                                <div class="dropdown-header">
+                                    <h3>الإشعارات</h3>
+                                    <a href="#" class="mark-all-read">تحديد الكل كمقروء</a>
+                                </div>
+                                <div class="dropdown-body">
+                                    <a href="#" class="notification-item unread">
+                                        <div class="notif-icon green"><i class="fas fa-check"></i></div>
+                                        <div class="notif-content">
+                                            <span class="notif-title">تم إضافة عميل جديد</span>
+                                            <span class="notif-desc">تم إضافة بيانات العميل الجديد بنجاح إلى
+                                                النظام</span>
+                                            <span class="notif-time">منذ 5 دقائق</span>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="notification-item unread">
+                                        <div class="notif-icon blue"><i class="fas fa-user-plus"></i></div>
+                                        <div class="notif-content">
+                                            <span class="notif-title">موظف جديد</span>
+                                            <span class="notif-desc">تم تسجيل مندوب مبيعات جديد في
+                                                القاهرة</span>
+                                            <span class="notif-time">منذ ساعة</span>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="notification-item">
+                                        <div class="notif-icon orange"><i class="fas fa-exclamation-triangle"></i>
+                                        </div>
+                                        <div class="notif-content">
+                                            <span class="notif-title">تنبيه المخزون</span>
+                                            <span class="notif-desc">الكمية المتاحة من الصنف قاربت على
+                                                الانتهاء</span>
+                                            <span class="notif-time">منذ ساعتين</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="dropdown-footer">
+                                    <a href="notifications.html" class="view-all-btn">عرض كل الإشعارات</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <img src="images/user.jpeg" alt="profile" />
+                            </div>
+                            <div class="profile-text">
+                                <span class="welcome">مرحبًا</span>
+                                <span class="name">محمد</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        </div>
+    </main>
+    <script src="./js/bootstrap-bundle-min.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

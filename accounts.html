@@ -1,0 +1,697 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Financial - Accounts</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="./css/bootstrap-min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+    <main>
+        <div class="row mx-auto">
+            <!-- Sidebar -->
+            <div class="col-lg-3 col-md-4 p-0 sidebar-wrapper" id="sidebar">
+                <!-- Sidebar Toggle Arrow -->
+                <button class="sidebar-toggle-arrow" id="sidebarToggle" onclick="toggleSidebar()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <aside>
+                    <div class="sidebar-container">
+                        <!-- Header -->
+                        <div class="page-header">
+                            <h1>Med Guide<br /><span>ميد جايد</span></h1>
+                        </div>
+
+                        <!-- Menu -->
+                        <nav class="sidebar-menu">
+                            <ul>
+                                <li>
+                                    <a href="index.html">
+                                        الصفحة الرئيسية
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="customers.html">
+                                        العملاء
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="employees.html">
+                                        المندوبين
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="discounts.html">
+                                        الخصومات
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="accounts.html" class="active">
+                                        الحسابات
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="reports.html">
+                                        التقارير
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="permissions.html">
+                                        الأذونات
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="history.html">
+                                        سجل النشاط
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        تسجيل الخروج
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9 col-md-8 p-0 content" id="mainContent">
+                <div class="content-wrapper d-flex flex-column gap-4">
+                    <!-- Top Section: Header & Profile -->
+                    <div class="row w-100 m-0 justify-content-between align-items-center">
+                        <div class="col-lg-8">
+                            <!-- Page Header -->
+
+                            <!-- Top Row -->
+                            <div class="header-top-row">
+                                <div class="center-section">
+                                    <div class="main-search-wrapper">
+                                        <input type="text" class="main-search-input" placeholder="بحث" />
+                                        <i class="fas fa-search search-icon"></i>
+                                    </div>
+                                </div>
+
+                                <div class="left-section">
+                                    <button class="header-icon-btn"><i class="fas fa-print"></i></button>
+                                    <button class="header-icon-btn"><i class="fas fa-file-import"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Profile Section -->
+                        <div class="col-lg-4 d-flex align-items-center justify-content-end gap-3">
+                            <!-- Notifications -->
+                            <div class="notification-wrapper position-relative">
+                                <button class="notification-btn" onclick="toggleNotifications()">
+                                    <i class="far fa-bell"></i>
+                                    <span class="notification-badge">3</span>
+                                </button>
+                                <div class="notification-dropdown" id="notificationDropdown">
+                                    <div class="dropdown-header">
+                                        <h3>الإشعارات</h3>
+                                        <a href="#" class="mark-all-read">تحديد الكل كمقروء</a>
+                                    </div>
+                                    <div class="dropdown-body">
+                                        <a href="#" class="notification-item unread">
+                                            <div class="notif-icon green"><i class="fas fa-check"></i></div>
+                                            <div class="notif-content">
+                                                <span class="notif-title">تم إضافة عميل جديد</span>
+                                                <span class="notif-desc">تم إضافة بيانات العميل الجديد بنجاح إلى
+                                                    النظام</span>
+                                                <span class="notif-time">منذ 5 دقائق</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notification-item unread">
+                                            <div class="notif-icon blue"><i class="fas fa-user-plus"></i></div>
+                                            <div class="notif-content">
+                                                <span class="notif-title">موظف جديد</span>
+                                                <span class="notif-desc">تم تسجيل مندوب مبيعات جديد في القاهرة</span>
+                                                <span class="notif-time">منذ ساعة</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notification-item">
+                                            <div class="notif-icon orange"><i class="fas fa-exclamation-triangle"></i>
+                                            </div>
+                                            <div class="notif-content">
+                                                <span class="notif-title">تنبيه المخزون</span>
+                                                <span class="notif-desc">الكمية المتاحة من الصنف قاربت على
+                                                    الانتهاء</span>
+                                                <span class="notif-time">منذ ساعتين</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-footer">
+                                        <a href="notifications.html" class="view-all-btn">عرض كل الإشعارات</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-image">
+                                    <img src="images/user.jpeg" alt="profile" />
+                                </div>
+                                <div class="profile-text">
+                                    <span class="welcome">مرحبًا</span>
+                                    <span class="name">محمد</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stats Section Group -->
+                    <div class="d-flex flex-column gap-2">
+                        <!-- Date Filters for Stats -->
+                        <div class="row w-100 m-0 align-items-center justify-content-start stats-filter-container">
+                            <div class="col-auto d-flex gap-2">
+                                <div class="filter-group">
+                                    <select class="filter-select" id="statsYearFilter">
+                                        <option selected disabled>السنة</option>
+                                        <option value="2024">2024</option>
+                                        <option value="2025">2025</option>
+                                        <option value="2026">2026</option>
+                                    </select>
+                                </div>
+                                <div class="filter-group" id="statsMonthFilterGroup" style="display: none;">
+                                    <select class="filter-select" id="statsMonthFilter">
+                                        <option selected disabled>الشهر</option>
+                                        <option value="1">يناير</option>
+                                        <option value="2">فبراير</option>
+                                        <option value="3">مارس</option>
+                                        <option value="4">أبريل</option>
+                                        <option value="5">مايو</option>
+                                        <option value="6">يونيو</option>
+                                        <option value="7">يوليو</option>
+                                        <option value="8">أغسطس</option>
+                                        <option value="9">سبتمبر</option>
+                                        <option value="10">أكتوبر</option>
+                                        <option value="11">نوفمبر</option>
+                                        <option value="12">ديسمبر</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Stats Cards Row -->
+                        <div class="row w-100 m-0 g-3">
+                            <div class="col-md-4">
+                                <div class="stat-card">
+                                    <div class="stat-icon bg-green-light text-green">
+                                        <i class="fas fa-money-bill-wave"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="stat-label">إجمالي الإيرادات</div>
+                                        <div class="stat-value" id="totalRevenueStat">150,000 ج.م</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="stat-card">
+                                    <div class="stat-icon bg-gold-light text-gold stat-icon-gold">
+                                        <i class="fas fa-crown"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="stat-label">الكروت الذهبية</div>
+                                        <div class="stat-value" id="goldenCardsCount">85 كارت</div>
+                                        <div class="stat-subtext text-success fs-12" id="goldenCardsRevenue">+ 85,000
+                                            ج.م
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="stat-card">
+                                    <div class="stat-icon bg-blue-light text-blue">
+                                        <i class="fas fa-id-card"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="stat-label">الكروت العادية</div>
+                                        <div class="stat-value" id="normalCardsCount">120 كارت</div>
+                                        <div class="stat-subtext text-success fs-12" id="normalCardsRevenue">+ 65,000
+                                            ج.م
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Filter Bar -->
+                    <div class="row w-100 m-0">
+                        <div class="col-12 px-0">
+                            <div class="filters-bar-container">
+                                <div class="filter-icon-wrapper">
+                                    <i class="fas fa-sliders-h"></i>
+                                </div>
+
+                                <div class="filters-list">
+                                    <!-- Account Type Filter -->
+                                    <div class="filter-group">
+                                        <select class="filter-select" id="accountTypeFilter">
+                                            <option value="employee" selected>حسابات المندوبين</option>
+                                            <option value="customer">حسابات العملاء</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Employee Filter -->
+                                    <div class="d-flex gap-2" id="employeeFilterGroup">
+                                        <!-- Financial Status Filter -->
+                                        <div class="filter-group">
+                                            <select class="filter-select">
+                                                <option selected disabled>حالة الحساب</option>
+                                                <option value="all">الكل</option>
+                                                <option value="indebted">عليه مديونية</option>
+                                                <option value="settled">تمت التسوية</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!-- Customer Filters (Hidden by default) -->
+                                    <div class="d-flex gap-2 d-none" id="customerFilterGroup">
+                                        <!-- Filter by Responsible Delegate -->
+                                        <div class="filter-group">
+                                            <select class="filter-select">
+                                                <option selected disabled>المندوب المسئول</option>
+                                                <option value="all">كل المندوبين</option>
+                                                <option value="أحمد محمد">أحمد محمد</option>
+                                                <option value="سارة علي">سارة علي</option>
+                                                <option value="خالد عمر">خالد عمر</option>
+                                            </select>
+                                        </div>
+
+                                        <!-- Filter by Entity -->
+                                        <div class="filter-group">
+                                            <select class="filter-select">
+                                                <option selected disabled>الجهة</option>
+                                                <option value="all">الكل</option>
+                                                <option value="المحاجر">المحاجر</option>
+                                                <option value="التعليم">التعليم</option>
+                                                <option value="الصحة">الصحة</option>
+                                                <option value="قطاع خاص">قطاع خاص</option>
+                                            </select>
+                                        </div>
+
+                                        <!-- Payment Status Filter -->
+                                        <div class="filter-group">
+                                            <select class="filter-select">
+                                                <option selected disabled>حالة الدفع</option>
+                                                <option value="all">الكل</option>
+                                                <option value="status-incomplete">غير مكتمل السداد</option>
+                                                <option value="status-complete">مكتمل السداد</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button class="search-submit-btn"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accounts List -->
+                    <div class="row w-100 m-0">
+                        <div class="col-12 px-0">
+                            <div class="accounts-list-container premium-list-container">
+
+                                <!-- Employee Accounts Table -->
+                                <div id="employeeAccountsTableWrapper">
+                                    <table class="custom-table" id="employeeAccountsTable">
+                                        <thead>
+                                            <tr>
+                                                <th class="col-id-header"></th>
+                                                <th>المندوب</th>
+                                                <th>عدد العملاء</th>
+                                                <th>الكروت الذهبية</th>
+                                                <th>الكروت العادية</th>
+                                                <th>إجمالي المبيعات</th>
+                                                <th>المورد للشركة</th>
+                                                <th>المتبقي (العهدة)</th>
+                                                <th class="col-th-icon"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- Item 1 -->
+                                            <tr data-year="2026" data-month="1">
+                                                <td class="col-id">1</td>
+                                                <td class="card-cell card-start fw-600">
+                                                    <span class="d-none">indebted</span>
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <img src="images/user.jpeg" class="rounded-circle" width="32"
+                                                            height="32" alt="user">
+                                                        <span>أحمد محمد</span>
+                                                    </div>
+                                                </td>
+                                                <td class="card-cell">
+                                                    <span class="badge-soft-purple">150 عميل</span>
+                                                </td>
+                                                <td class="card-cell">
+                                                    <div class="d-flex flex-column">
+                                                        <span class="fw-bold text-gold">45 كارت</span>
+                                                        <span class="fs-12 text-muted">45,000 ج.م</span>
+                                                    </div>
+                                                </td>
+                                                <td class="card-cell">
+                                                    <div class="d-flex flex-column">
+                                                        <span class="fw-bold text-blue">30 كارت</span>
+                                                        <span class="fs-12 text-muted">15,000 ج.م</span>
+                                                    </div>
+                                                </td>
+                                                <td class="card-cell text-green fw-bold fs-16">60,000 ج.م</td>
+                                                <td class="card-cell text-success fw-bold">50,000 ج.م</td>
+                                                <td class="card-cell card-end text-danger fw-bold">10,000 ج.م</td>
+                                                <td>
+                                                    <a href="edit-employee.html" class="external-icon-link">
+                                                        <img src="images/external-icon.png" alt="external">
+                                                    </a>
+                                                </td>
+                                            </tr>
+
+                                            <!-- Item 2 -->
+                                            <tr data-year="2026" data-month="2">
+                                                <td class="col-id">2</td>
+                                                <td class="card-cell card-start fw-600">
+                                                    <span class="d-none">indebted</span>
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <div class="avatar-circle blue">س</div>
+                                                        <span>سارة علي</span>
+                                                    </div>
+                                                </td>
+                                                <td class="card-cell">
+                                                    <span class="badge-soft-purple">95 عميل</span>
+                                                </td>
+                                                <td class="card-cell">
+                                                    <div class="d-flex flex-column">
+                                                        <span class="fw-bold text-gold">25 كارت</span>
+                                                        <span class="fs-12 text-muted">25,000 ج.م</span>
+                                                    </div>
+                                                </td>
+                                                <td class="card-cell">
+                                                    <div class="d-flex flex-column">
+                                                        <span class="fw-bold text-blue">50 كارت</span>
+                                                        <span class="fs-12 text-muted">25,000 ج.م</span>
+                                                    </div>
+                                                </td>
+                                                <td class="card-cell text-green fw-bold fs-16">50,000 ج.م</td>
+                                                <td class="card-cell text-success fw-bold">40,000 ج.م</td>
+                                                <td class="card-cell card-end text-danger fw-bold">10,000 ج.م</td>
+                                                <td>
+                                                    <a href="edit-employee.html" class="external-icon-link">
+                                                        <img src="images/external-icon.png" alt="external">
+                                                    </a>
+                                                </td>
+                                            </tr>
+
+                                            <!-- Item 3 -->
+                                            <tr data-year="2026" data-month="3">
+                                                <td class="col-id">3</td>
+                                                <td class="card-cell card-start fw-600">
+                                                    <span class="d-none">indebted</span>
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <div class="avatar-circle orange">خ</div>
+                                                        <span>خالد عمر</span>
+                                                    </div>
+                                                </td>
+                                                <td class="card-cell">
+                                                    <span class="badge-soft-purple">60 عميل</span>
+                                                </td>
+                                                <td class="card-cell">
+                                                    <div class="d-flex flex-column">
+                                                        <span class="fw-bold text-gold">15 كارت</span>
+                                                        <span class="fs-12 text-muted">15,000 ج.م</span>
+                                                    </div>
+                                                </td>
+                                                <td class="card-cell">
+                                                    <div class="d-flex flex-column">
+                                                        <span class="fw-bold text-blue">40 كارت</span>
+                                                        <span class="fs-12 text-muted">20,000 ج.م</span>
+                                                    </div>
+                                                </td>
+                                                <td class="card-cell text-green fw-bold fs-16">35,000 ج.م</td>
+                                                <td class="card-cell text-success fw-bold">30,000 ج.م</td>
+                                                <td class="card-cell card-end text-danger fw-bold">5,000 ج.م</td>
+                                                <td>
+                                                    <a href="edit-employee.html" class="external-icon-link">
+                                                        <img src="images/external-icon.png" alt="external">
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <!-- Customer Accounts Table (Hidden by Default) -->
+                                <div id="customerAccountsTableWrapper" class="d-none">
+                                    <table class="custom-table" id="customerAccountsTable">
+                                        <thead>
+                                            <tr>
+                                                <th class="col-id-header"></th>
+                                                <th>العميل</th>
+                                                <th>المندوب المسئول</th>
+                                                <th>الجهة</th>
+                                                <th>الهاتف</th>
+                                                <th>نوع الكارت</th>
+                                                <th>قيمة الاشتراك</th>
+                                                <th>المدفوع</th>
+                                                <th>المتبقي</th>
+                                                <th>تاريخ الانتهاء</th>
+                                                <th class="col-th-icon"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- Item 1: Unpaid -->
+                                            <tr>
+                                                <td class="col-id">1</td>
+                                                <td class="card-cell card-start">
+                                                    <span class="d-none">status-incomplete</span>
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <img src="images/user.jpeg" class="rounded-circle" width="32"
+                                                            height="32" alt="customer">
+                                                        <span>أحمد عصام</span>
+                                                    </div>
+                                                </td>
+                                                <td class="card-cell">
+                                                    <span class="badge-soft-blue">أحمد محمد</span>
+                                                </td>
+                                                <td class="card-cell">المحاجر</td>
+                                                <td class="card-cell">
+                                                    <div class="d-flex align-items-center justify-content-center gap-2">
+                                                        <a href="https://wa.me/201111111111" target="_blank"
+                                                            class="contact-icon-btn whatsapp">
+                                                            <i class="fab fa-whatsapp"></i>
+                                                        </a>
+                                                        <a href="tel:01111111111" class="contact-icon-btn call">
+                                                            <i class="fas fa-phone-alt"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td class="card-cell"><span class="role-badge warning-light">ذهبي</span>
+                                                </td>
+                                                <td class="card-cell fw-bold">5,000 ج.م</td>
+                                                <td class="card-cell text-success">4,000 ج.م</td>
+                                                <td class="card-cell text-danger">1,000 ج.م</td>
+                                                <td class="card-cell card-end text-danger">2026/12/31</td>
+                                                <td>
+                                                    <a href="edit-customer.html" class="external-icon-link">
+                                                        <img src="images/external-icon.png" alt="external">
+                                                    </a>
+                                                </td>
+                                            </tr>
+
+                                            <!-- Item 2: Paid -->
+                                            <tr>
+                                                <td class="col-id">2</td>
+                                                <td class="card-cell card-start">
+                                                    <span class="d-none">status-complete</span>
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <img src="images/user.jpeg" class="rounded-circle" width="32"
+                                                            height="32" alt="customer">
+                                                        <span>محمد حسن</span>
+                                                    </div>
+                                                </td>
+                                                <td class="card-cell">
+                                                    <span class="badge-soft-purple">سارة علي</span>
+                                                </td>
+                                                <td class="card-cell">التعليم</td>
+                                                <td class="card-cell">
+                                                    <div class="d-flex align-items-center justify-content-center gap-2">
+                                                        <a href="https://wa.me/201222222222" target="_blank"
+                                                            class="contact-icon-btn whatsapp">
+                                                            <i class="fab fa-whatsapp"></i>
+                                                        </a>
+                                                        <a href="tel:01222222222" class="contact-icon-btn call">
+                                                            <i class="fas fa-phone-alt"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td class="card-cell"><span class="role-badge success-light">عادي</span>
+                                                </td>
+                                                <td class="card-cell fw-bold">1,000 ج.م</td>
+                                                <td class="card-cell text-success">1,000 ج.م</td>
+                                                <td class="card-cell text-muted">0 ج.م</td>
+                                                <td class="card-cell card-end text-danger">2026/06/30</td>
+                                                <td>
+                                                    <a href="edit-customer.html" class="external-icon-link">
+                                                        <img src="images/external-icon.png" alt="external">
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <!-- Item 3: Unpaid (New for testing) -->
+                                            <tr>
+                                                <td class="col-id">3</td>
+                                                <td class="card-cell card-start">
+                                                    <span class="d-none">status-incomplete</span>
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <img src="images/user.jpeg" class="rounded-circle" width="32"
+                                                            height="32" alt="customer">
+                                                        <span>محمود علي</span>
+                                                    </div>
+                                                </td>
+                                                <td class="card-cell">
+                                                    <span class="badge-soft-purple">خالد عمر</span>
+                                                </td>
+                                                <td class="card-cell">الصحة</td>
+                                                <td class="card-cell">
+                                                    <div class="d-flex align-items-center justify-content-center gap-2">
+                                                        <a href="https://wa.me/201000000000" target="_blank"
+                                                            class="contact-icon-btn whatsapp">
+                                                            <i class="fab fa-whatsapp"></i>
+                                                        </a>
+                                                        <a href="tel:01000000000" class="contact-icon-btn call">
+                                                            <i class="fas fa-phone-alt"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td class="card-cell"><span class="role-badge success-light">عادي</span>
+                                                </td>
+                                                <td class="card-cell fw-bold">1,500 ج.م</td>
+                                                <td class="card-cell text-success">0 ج.م</td>
+                                                <td class="card-cell text-danger">1,500 ج.م</td>
+                                                <td class="card-cell card-end text-danger">2026/01/01</td>
+                                                <td>
+                                                    <a href="edit-customer.html" class="external-icon-link">
+                                                        <img src="images/external-icon.png" alt="external">
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Account Statement Modal -->
+            <div class="modal fade" id="accountStatementModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title fw-bold">كشف حساب تفصيلي</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div>
+                                    <h6 class="mb-1 text-muted">الاسم: <span id="statementName"
+                                            class="text-dark fw-bold">أحمد محمد</span></h6>
+                                    <h6 class="mb-0 text-muted">الرصيد الحالي: <span id="statementBalance"
+                                            class="text-danger fw-bold">10,000 ج.م</span></h6>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover text-center align-middle">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>التاريخ</th>
+                                            <th>البيان</th>
+                                            <th>مدين (عليه)</th>
+                                            <th>دائن (له)</th>
+                                            <th>الرصيد</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>2024/01/01</td>
+                                            <td>رصيد افتتاحي</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2024/01/05</td>
+                                            <td>استلام كروت (50 كارت)</td>
+                                            <td class="text-danger">50,000</td>
+                                            <td>-</td>
+                                            <td class="text-danger">50,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2024/01/15</td>
+                                            <td>توريد نقدية</td>
+                                            <td>-</td>
+                                            <td class="text-success">40,000</td>
+                                            <td class="text-danger">10,000</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+                            <button type="button" class="btn btn-outline-primary"><i class="fas fa-print me-1"></i>
+                                طباعة</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Payment Modal -->
+            <div class="modal fade" id="addPaymentModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title fw-bold">تسجيل عملية سداد / توريد</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label class="form-label">الاسم</label>
+                                    <input type="text" class="form-control" value="أحمد محمد" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">المبلغ المدفوع (ج.م)</label>
+                                    <input type="number" class="form-control" placeholder="ادخل المبلغ" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">تاريخ السداد</label>
+                                    <input type="date" class="form-control" value="2024-02-02">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">ملاحظات</label>
+                                    <textarea class="form-control" rows="2"
+                                        placeholder="أي تفاصيل إضافية..."></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                            <button type="button" class="btn btn-primary">حفظ العملية</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="./js/bootstrap-bundle-min.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
