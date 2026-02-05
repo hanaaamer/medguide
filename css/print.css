@@ -1,0 +1,150 @@
+/* Print Styles - Aggressive Reset */
+@media print {
+
+    /* HIDE EVERYTHING by default */
+    body * {
+        visibility: hidden;
+    }
+
+    /* Exceptions: Only show what we need */
+    /* We need the table and its specific parents to be visible */
+    #mainContent,
+    .content-wrapper,
+    .row,
+    .col-12,
+    .accounts-list-container,
+    .employees-list-container,
+    .premium-list-container,
+    .customers-list-container,
+    .custom-table,
+    .custom-table *,
+    .modal.show .modal-content,
+    /* If printing modal */
+    .modal.show .modal-content * {
+        visibility: visible;
+    }
+
+    /* Hide specific children that might be inside the visible parents but we don't want */
+    .header-top-row,
+    .profile-card,
+    .notification-wrapper,
+    .sidebar-wrapper,
+    .main-search-wrapper,
+    .filter-icon-wrapper,
+    .filters-bar-container,
+    .stat-card,
+    .employee-grid,
+    .page-header,
+    .modal-header .btn-close,
+    .modal-footer,
+    .action-icons,
+    .external-icon-link,
+    th:last-child,
+    td:last-child {
+        display: none !important;
+    }
+
+    /* Layout Reset */
+    body,
+    html {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        background-color: white !important;
+        overflow: visible !important;
+    }
+
+    /* Reset Bootstrap Grid / Flex offsets */
+    .sidebar-wrapper {
+        display: none !important;
+        width: 0 !important;
+    }
+
+    .col-lg-3,
+    .col-md-4 {
+        display: none !important;
+        width: 0 !important;
+    }
+
+    /* Force Main Content to Full Width - Absolute positioning ensures it ignores sidebar space */
+    #mainContent,
+    .col-lg-9,
+    .col-md-8,
+    .content-wrapper,
+    .content {
+        position: absolute !important;
+        left: 0 !important;
+        top: 0 !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        overflow: visible !important;
+        /* CRITICAL: Allow content to expand beyond container */
+    }
+
+    /* Center the Table Container & ensure it doesn't scroll */
+    .customers-list-container,
+    .premium-list-container,
+    .employees-list-container,
+    .accounts-list-container,
+    div[id$="TableWrapper"],
+    .table-responsive {
+        display: block !important;
+        /* Flex can sometimes behave weirdly with overflow on print */
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
+        /* Disable scrollbars, show full content */
+        text-align: center !important;
+        /* Center the table via inline-block/margin auto */
+    }
+
+    /* Style the Table - Compact for better fit */
+    .custom-table {
+        width: 98% !important;
+        /* Use almost full width */
+        margin: 10px auto !important;
+        /* Center horizontally */
+        border-collapse: collapse !important;
+        direction: rtl !important;
+    }
+
+    /* Tweak Page Margins */
+    @page {
+        margin: 5mm;
+        size: auto;
+    }
+
+    .custom-table th,
+    .custom-table td {
+        border: 1px solid #ccc !important;
+        padding: 2px 1px !important;
+        /* Ultra minimal padding */
+        text-align: center !important;
+        color: #000 !important;
+        font-size: 7pt !important;
+        /* Tiny font to force fit */
+        white-space: normal !important;
+        /* Allow wrapping */
+        vertical-align: middle !important;
+        line-height: 1.2 !important;
+        overflow: visible !important;
+    }
+
+    /* Reduce image sizes in table for print */
+    .custom-table img {
+        max-width: 20px !important;
+        max-height: 20px !important;
+        width: auto !important;
+        height: auto !important;
+    }
+
+    /* Remove interactive styles */
+    .custom-table tbody td.card-cell {
+        background-color: transparent !important;
+        box-shadow: none !important;
+    }
+}
